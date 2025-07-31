@@ -1,2 +1,10 @@
 AncestryID,Ancestry,Size,Speed,Core_Traits,Secondary_Traits
-Dwarf, 1,[0],5,[],[]
+1,Dwarf,0,5,,
+2,Elf,0,6,,
+3,Human,0,6,,
+4,Lightfoot,-1,5,,
+5,Orc,0,6,,
+6,Dragonborne,-1;0,6,,
+7,Hellkin,-1;0,6,,
+8,Jotunnheir,0,6,,
+9,Seraphsent,-1;0,6,,
