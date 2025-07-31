@@ -1,0 +1,12 @@
+Trait_ID	Name	isCore	Description
+1	Tough	1	You HP max increases by 1
+2	Toxic Fortitude	1	You have Poison Resistance (Half) and ADV on Saves against being Poisoned
+3	Iron Stomach	1	You have ADV on Saves against effects that come from consuming foods or liquids
+4	Thick-Skinned	0	Your AC increases by 1 while you're not wearing Heavy Armor
+5	Thick-Bearded	0	You are immune to airborne effects that would deal poison damage or impose the Poisoned condition
+6	Dense	0	You have ADV on any Checks or Saves to avoid being forcibly moved
+7	Cave Diver	0	You have Darkvision up to 4 Spaces
+8	Minor Tremorsense	0	You have Tremorsense up 2 to Spaces
+9	Natural Hunter	1	You have Expertise in Survival
+10	Grounded Nature	1	You have ADV on Checks and Saves against being Charmed
+11	Natural Camouflage	1	When obscured by foliage, you have ADV on Strealth Checks
