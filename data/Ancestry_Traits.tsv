@@ -20,4 +20,19 @@ Trait_ID	Name	isCore	Description
 19	Quick Learner	0	You gain 1 Skill Point
 20	Human Spirit	0	You have ADV on Death Saves
 21	Natural Diplomat	0	You learn an additional Common Language
-22	Mundane	0	Text
+22	Mundane	0	You have ADV on Saves and Checks to discern magical illusions
+23	Persistent	0	The penalties from the Exhaustion condition are reduced by 1
+24	Small Form	1	- You have ADV on saves against traps - When you use a weapon with the loading property, the AP is increased by 1 - Your Speed is reduced by 1 when wielding a Heavy Shield - A day's ration instead lasts 2 days for you and you require less water to survive
+25	Elusive	1	When you take the Disengage Action, you instead gain the benefit of a the Full Disengage Action
+26	Fleet of Foot	1	You have ADV on Initiative rolls. The second time you take the Move Action in a round of combat, your Speed is not halved
+27	Light Body	0	You take 1 less falling damage
+28	Fight-or-Flight	0	Once per day, you can end the Intimated or Frightened Condition on yourself for free at anytime
+29	Deft Form	0	You gain Expertise with Sleight of Hand
+30	Natural Climber	0	You gain a Climb Speed equal to your Speed
+31	Scurry	0	When an Attack of Opportunity misses you, you can move 1 more space without provoking anymore Attacks of Opportunity
+32	Defying Endurance	1	Once per day, the first time you would be reduced to Death's Door, you are instead reduced to 1 HP
+33	Nomad	1	Choose Animal Handling or Survival, you gain Expertise with that skill
+34	Runner	0	Increase your Speed by 1
+35	Brutal Strikes	0	You deal +1 damage when you score a Brutal or Critical Hit with a Melee Weapon or Unarmed Strike
+36	Persistent Traveler	0	You have ADV on saves against Exhaustion
+37	Born Rider	0	You have ADV on Saves and Checks to stay on your mount
