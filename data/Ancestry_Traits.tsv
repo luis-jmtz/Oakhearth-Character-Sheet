@@ -36,3 +36,27 @@ Trait_ID	Name	isCore	Description
 35	Brutal Strikes	0	You deal +1 damage when you score a Brutal or Critical Hit with a Melee Weapon or Unarmed Strike
 36	Persistent Traveler	0	You have ADV on saves against Exhaustion
 37	Born Rider	0	You have ADV on Saves and Checks to stay on your mount
+38	Draconic Origin	1	Choose Fire, Water(Cold) or Air(Lightning) as the element of your Draconic origin: - You gain Resistance (X) for the element of your Draconic Origin where X is equal to your Combat Proficiency - Once per Short Rest, you can imbue an Attack with the element of your Draconic Origin. The additional damage of this attack is equal to your Combat Proficiency
+39	Darkvision	1	You have Darkvision up to 10 Spaces
+40	Draconic Arm	0	The damage of your Unarmed Strikes increases to 1. Additionally, you can choose between Bludgeoning or Slashing damage on each attack
+41	Draconic Legs	0	Increase your Speed by 1
+42	Thick-Skinned	0	Your AC increases by 1 while you're not wearing Heavy Armor
+43	Prehensile Tail	0	You can hold objects with your tail, but you cannot use it to attack with a weapon or magic item
+44	Mana Infused	1	You gain 1 additional MP
+45	Darkvision	1	You have Darkvision up to 5 Spaces
+46	Unfair Advantage	1	You gain 1 additional Attribute Point to spend as you wish during character creation
+47	Prowler	0	You have ADV on Stealth Checks while in Darkness
+48	Light's Bane	0	You can spend 1 AP to snuff out a mundane light source within 5 Spaces of you
+49	Fiendish Aura	0	You learn the Prestidigitation cantrip
+50	Powerful Build	1	You count as 1 size larger for the purpose of Athletic Checks
+51	Stone Skin	1	You gain 1 Damage Reduction against Physical Damage
+52	Mighty Leap	1	You can use your Might instead of Dexterity to determine your Jump Distance and the damage you take from Falling
+53	Unstoppable	0	You have ADV on Saves against being Slowed or Stunned
+54	Stamina Increase	0	Your SP maximum increases by 1
+55	Rock Thrower	0	When you throw a rock as an attack, you add your Combat Proficiency to the attack roll. The rock has the following properties: 1B, Impact, Thrown(4/8)
+56	Radiant Resistance	1	You have Resistance (1/2) against Radiant Damage
+57	Finder of Truth	1	You add your Combat Proficiency to your Insight Checks
+58	Blessed Healer	0	Whenever you cause a creature to regain HP, that creature heals 1 additional HP
+59	Celestial Clarity	0	You have ADV on Saves against being Blinded or Deafend
+60	Feathery Fall	0	You take 1 less damage from Falling
+61	Savior	0	Once per Short Rest, if a creature within 6 spaces of you enters Death's Door, you can choose to lose 1 HP and have that creature regain 1 HP
