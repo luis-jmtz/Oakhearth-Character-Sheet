@@ -39,7 +39,6 @@ Trait_ID	Name	isCore	Description
 38	Draconic Origin	1	Choose Fire, Water(Cold) or Air(Lightning) as the element of your Draconic origin: - You gain Resistance (X) for the element of your Draconic Origin where X is equal to your Combat Proficiency - Once per Short Rest, you can imbue an Attack with the element of your Draconic Origin. The additional damage of this attack is equal to your Combat Proficiency
 39	Darkvision	1	You have Darkvision up to 10 Spaces
 40	Draconic Arm	0	The damage of your Unarmed Strikes increases to 1. Additionally, you can choose between Bludgeoning or Slashing damage on each attack
-41	Draconic Visage	0	Choose between the Intimidation or Threaten skill. You gain Expertise with that skill.’
 41	Draconic Legs	0	Increase your Speed by 1
 42	Thick-Skinned	0	Your AC increases by 1 while you're not wearing Heavy Armor
 43	Prehensile Tail	0	You can hold objects with your tail, but you cannot use it to attack with a weapon or magic item
@@ -61,3 +60,4 @@ Trait_ID	Name	isCore	Description
 59	Celestial Clarity	0	You have ADV on Saves against being Blinded or Deafend
 60	Feathery Fall	0	You take 1 less damage from Falling
 61	Savior	0	Once per Short Rest, if a creature within 6 spaces of you enters Death's Door, you can choose to lose 1 HP and have that creature regain 1 HP
+62	Draconic Visage	0	Choose between the Intimidation or Threaten skill. You gain Expertise with that skill.’
