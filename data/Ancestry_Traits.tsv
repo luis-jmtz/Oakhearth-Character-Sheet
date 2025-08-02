@@ -1,4 +1,4 @@
-Trait_ID	Name	isCore	Description
+traitID	Name	isCore	Description
 1	Tough	1	You HP max increases by 1
 2	Toxic Fortitude	1	You have Poison Resistance (Half) and ADV on Saves against being Poisoned
 3	Iron Stomach	1	You have ADV on Saves against effects that come from consuming foods or liquids

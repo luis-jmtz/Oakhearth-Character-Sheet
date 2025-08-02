@@ -21,7 +21,7 @@ def append_ancestry_traits(trait_name,isCore,trait_description):
 	path = fr"data\Ancestry_Traits.tsv"
 	df = pd.read_csv(path,sep = '\t')
 
-	last_id = int(df['classID'].iloc[-1])
+	last_id = int(df['traitID'].iloc[-1])
 	# print(last_id)
 	new_id_value = last_id + 1
 
