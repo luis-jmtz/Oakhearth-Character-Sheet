@@ -1,0 +1,64 @@
+{
+
+	"HP":null,
+	"AC":null,
+	"Level":0,
+	"Combat Proficiency":null,
+
+	"Mgt":null,
+	"Dex":null,
+	"Int":null,
+	"Cha":null,
+
+	"Prime":null,
+
+	"Saves":{
+		"Mgt":0,
+		"Dex":0,
+		"Int":0,
+		"Cha":0
+	},
+
+	"Skills":{
+		"Mgt":{"Athletics":null,"Intimidation":null},
+		"Dex":{"Acrobatics":null,"Sleight-of-Hand":null,"Stealth":null},
+		"Int":{
+			"Arcane":null,
+			"History":null,
+			"Investigation":null,
+			"Medicine":null,
+			"Occultism":null,
+			"Religion":null,
+			"Survival":null,
+			"Knowledge":null
+			},
+		
+		"Cha":{
+			"Animal-Handling":null,
+			"Deception":null,
+			"Insight":null,
+			"Performance":null,
+			"Persuasion":null,
+			"Threaten":null
+			},
+
+		"Perception":null
+
+	},
+
+	"Languages":{
+		"Common":true,
+		"Dwarvish":false,
+		"Elvish":false,
+		"Hase":false,
+		"Human":false,
+		"Lightfoot":false,
+		"Miauen":false,
+		"Orcish":false,
+		"Celestial":false,
+		"Jotunn":false,
+		"Draconic":false,
+		"Fiend-tongue":false
+	}
+
+}
