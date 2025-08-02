@@ -30,4 +30,3 @@ def append_ancestry_traits(trait_name,isCore,trait_description):
 	print(df)
 
 
-append_ancestry_traits("Name",0,"Description")
