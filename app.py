@@ -11,13 +11,19 @@ st.title("Oakhearth Character Creator")
 st.session_state.ancestries = pd.read_csv(fr"data\Ancestries.tsv",sep = '\t')
 st.session_state.ancestry_traits = pd.read_csv(fr"data\Ancestry_Traits.tsv",sep="\t")
 st.session_state.classes = pd.read_csv(fr"data\classID_Class.tsv",sep="\t")
+with open(fr'character_template.json', 'r') as file:
+    st.session_state.char_data = json.load(file)
+    # print(char_data)
 
+# store session state data as variables
 ancestries = st.session_state.ancestries
 ancestry_traits = st.session_state.ancestry_traits
 classes =  st.session_state.classes
+character_data =  st.session_state.char_data
 
 
-with open(fr'character_template.json', 'r') as file:
-    char_data = json.load(file)
-    # print(char_data)
-
+# ------ Attribute Scores -------
+st.session_state.mgt = 0
+st.session_state.dex = 0
+st.session_state.inte = 0
+st.session_state.cha = 0
