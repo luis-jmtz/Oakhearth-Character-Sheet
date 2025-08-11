@@ -15,3 +15,4 @@ classes = pd.read_csv(fr"data\classID_Class.tsv",sep="\t")
 with open(fr'character_template.json', 'r') as file:
     char_data = json.load(file)
     # print(char_data)
+
