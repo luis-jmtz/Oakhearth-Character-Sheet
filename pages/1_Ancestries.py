@@ -23,20 +23,28 @@ def parse_size(size_list):
 
 	return size_ouput
 
+def parse_common(value):
+
+	if value == 1:
+		return "(Common)"
+	else:
+		return "(Uncommon)"
 
 
 for index, row in ancestries.iterrows():
 	ancestry = ancestries["Ancestry"].iloc[index]
 	st.write(f"## {ancestry}")
 
-	size = ast.literal_eval(ancestries["Size"].iloc[index])
+	isCommon = int(ancestries["isCommon"].iloc[index])
+	isCommon = parse_common(isCommon)
 
+	st.write(f"{isCommon}")
+
+	size = ast.literal_eval(ancestries["Size"].iloc[index])
 	size_text = parse_size(size)
 
-	st.write(f"**Size**: {size_text}")
+	speed = ancestries["Speed"].iloc[index]
 
+	st.write(f"Size: {size_text}")
+	st.write(f"Speed: {speed}")
 
-# for row in ancestries['Ancestry']:
-# 	st.write(f"## {row}")
-# 	st.write(f"Size {ancestries['Size']}")
-# 	# print(row)
