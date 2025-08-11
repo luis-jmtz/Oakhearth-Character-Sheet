@@ -13,7 +13,6 @@ st.session_state.ancestry_traits = pd.read_csv(fr"data\Ancestry_Traits.tsv",sep=
 st.session_state.classes = pd.read_csv(fr"data\classID_Class.tsv",sep="\t")
 with open(fr'character_template.json', 'r') as file:
     st.session_state.char_data = json.load(file)
-    # print(char_data)
 
 # store session state data as variables
 ancestries = st.session_state.ancestries
@@ -30,4 +29,5 @@ charisma = st.session_state.cha = 0
 prime = st.session_state.prime = max([might, dexterity,intelligence,charisma])
 
 base_attribute_scores = [3,1,0,-2]
+# idea - the order of the values in the list determines what attribute the are applied to 
 
