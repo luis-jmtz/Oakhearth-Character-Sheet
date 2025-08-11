@@ -22,8 +22,12 @@ classes =  st.session_state.classes
 character_data =  st.session_state.char_data
 
 
-# ------ Attribute Scores -------
-st.session_state.mgt = 0
-st.session_state.dex = 0
-st.session_state.inte = 0
-st.session_state.cha = 0
+# ------ Define Attribute Scores -------
+might = st.session_state.mgt = 0
+dexterity = st.session_state.dex = 0
+intelligence = st.session_state.inte = 0
+charisma = st.session_state.cha = 0
+prime = st.session_state.prime = max([might, dexterity,intelligence,charisma])
+
+base_attribute_scores = [3,1,0,-2]
+
