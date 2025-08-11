@@ -31,3 +31,4 @@ prime = st.session_state.prime = max([might, dexterity,intelligence,charisma])
 base_attribute_scores = [3,1,0,-2]
 # idea - the order of the values in the list determines what attribute the are applied to 
 
+st.write("## Choose an Ancestry")
