@@ -43,3 +43,8 @@ ancestry_choice = st.selectbox(
     "",
     (ancestry_list),
 )
+
+# get ancestry ID
+ancestry_row = ancestries[ancestries['Ancestry'] == ancestry_choice] # selects row
+ancestry_ID = ancestry_row["ancestryID"].iloc[0] # selects column
+st.write(ancestry_ID)
