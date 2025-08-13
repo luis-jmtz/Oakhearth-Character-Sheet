@@ -2,7 +2,7 @@ import streamlit as st
 import json
 import pandas as pd
 # import os
-# import ast
+import ast
 # import sqlite3
 
 st.title("Oakhearth Character Creator")
@@ -47,4 +47,28 @@ ancestry_choice = st.selectbox(
 # get ancestry ID
 ancestry_row = ancestries[ancestries['Ancestry'] == ancestry_choice] # selects row
 ancestry_ID = ancestry_row["ancestryID"].iloc[0] # selects column
-st.write(ancestry_ID)
+core_traits = ast.literal_eval((ancestry_row["Core_Traits"].iloc[0]))
+secondary_traits = ast.literal_eval((ancestry_row["Secondary_Traits"].iloc[0]))
+
+# st.write(ancestry_ID)
+# st.write(core_traits)
+# st.write(secondary_traits)
+
+# Display Ancestry Traits
+def parse_traits(traits_list):
+	output_text = ""
+	for index, row in ancestry_traits.iterrows():
+		if ancestry_traits["traitID"].iloc[index] in traits_list:
+			trait_name = ancestry_traits["Name"].iloc[index]
+			trait_descript = ancestry_traits["Description"].iloc[index]
+			output_text += f"{trait_name}: {trait_descript} \n\n"
+	return output_text
+
+core_traits_text = parse_traits(core_traits)
+secondary_traits_text = parse_traits(secondary_traits)
+
+
+st.write("#### Core Traits")
+st.write(f"{core_traits_text}")
+st.write("#### Secondary Traits")
+st.write(f"{secondary_traits_text}")
