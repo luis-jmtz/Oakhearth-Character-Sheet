@@ -54,7 +54,9 @@ secondary_traits = ast.literal_eval((ancestry_row["Secondary_Traits"].iloc[0]))
 # st.write(core_traits)
 # st.write(secondary_traits)
 
-# Display Ancestry Traits
+# ---------- Display Ancestry Traits --------
+tcol1,tcol2 = st.columns(2,border=True)
+
 def parse_traits(traits_list):
 	output_text = ""
 	for index, row in ancestry_traits.iterrows():
@@ -67,8 +69,25 @@ def parse_traits(traits_list):
 core_traits_text = parse_traits(core_traits)
 secondary_traits_text = parse_traits(secondary_traits)
 
+with tcol1:
+    st.write("#### Core Traits")
+    st.write(f"{core_traits_text}")
+with tcol2:
+    st.write("#### Secondary Traits")
+    st.write(f"{secondary_traits_text}") # choose 2 secondary traits
 
-st.write("#### Core Traits")
-st.write(f"{core_traits_text}")
-st.write("#### Secondary Traits")
-st.write(f"{secondary_traits_text}")
+# --- Select Secondary Traits ----
+st.write("Select your Two Secondary Traits")
+secondary_traits_list = []
+for index, row in ancestry_traits.iterrows():
+    secondary_traits_list.append(ancestry_traits["Name"].iloc[index])
+
+st_1 = st.selectbox(
+    "",
+    (secondary_traits_list),
+)
+
+st_2 = st.selectbox(
+    "",
+    ("-",ancestry_list),
+)
