@@ -78,16 +78,29 @@ with tcol2:
 
 # --- Select Secondary Traits ----
 st.write("Select your Two Secondary Traits")
+
 secondary_traits_list = []
 for index, row in ancestry_traits.iterrows():
-    secondary_traits_list.append(ancestry_traits["Name"].iloc[index])
+    if ancestry_traits["traitID"].iloc[index] in secondary_traits:
+        secondary_traits_list.append(ancestry_traits["Name"].iloc[index])
 
-st_1 = st.selectbox(
-    "",
-    (secondary_traits_list),
-)
+chosen1,chosen2 = st.columns(2)
 
-st_2 = st.selectbox(
-    "",
-    ("-",ancestry_list),
-)
+chosen_secondary_traits = []
+
+with chosen1:
+    st_1 = st.selectbox(
+        "",
+        (secondary_traits_list),)
+
+chosen_secondary_traits.append(st_1)
+secondary_traits_list.remove(st_1)
+
+with chosen2:
+    st_2 = st.selectbox(
+        "",
+        (secondary_traits_list),)
+
+chosen_secondary_traits.append(st_2)
+
+# st.warning(chosen_secondary_traits)
