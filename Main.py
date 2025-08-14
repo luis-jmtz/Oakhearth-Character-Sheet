@@ -11,6 +11,10 @@ st.title("Oakhearth Character Creator")
 st.session_state.ancestries = pd.read_csv(fr"data\Ancestries.tsv",sep = '\t')
 st.session_state.ancestry_traits = pd.read_csv(fr"data\Ancestry_Traits.tsv",sep="\t")
 st.session_state.classes = pd.read_csv(fr"data\classID_Class.tsv",sep="\t")
+st.session_state.skills = pd.read_csv(fr"data\Skills.tsv", sep="\t")
+st.session_state.attribute_limit = pd.read_csv(fr"data\Attribute_Level_Limit.tsv", sep="\t")
+st.session_state.prof_limit = pd.read_csv(fr"data\Proficency_Level_Limit.tsv", sep="\t")
+
 with open(fr'character_template.json', 'r') as file:
     st.session_state.char_data = json.load(file)
 
@@ -19,17 +23,9 @@ ancestries = st.session_state.ancestries
 ancestry_traits = st.session_state.ancestry_traits
 classes =  st.session_state.classes
 character_data =  st.session_state.char_data
-
-
-# ------ Define Attribute Scores -------
-might = st.session_state.mgt = 0
-dexterity = st.session_state.dex = 0
-intelligence = st.session_state.inte = 0
-charisma = st.session_state.cha = 0
-prime = st.session_state.prime = max([might, dexterity,intelligence,charisma])
-
-base_attribute_scores = [3,1,0,-2]
-# idea - the order of the values in the list determines what attribute the are applied to 
+skills = st.session_state.skills = pd.read_csv(fr"data\Skills.tsv", sep="\t")
+attribute_limit = st.session_state.attribute_limit
+prof_limit = st.session_state.prof_limit
 
 
 # --- Choosing Ancestry --------------
@@ -50,11 +46,12 @@ ancestry_ID = ancestry_row["ancestryID"].iloc[0] # selects column
 core_traits = ast.literal_eval((ancestry_row["Core_Traits"].iloc[0]))
 secondary_traits = ast.literal_eval((ancestry_row["Secondary_Traits"].iloc[0]))
 
+
 # st.write(ancestry_ID)
 # st.write(core_traits)
 # st.write(secondary_traits)
 
-# ---------- Display Ancestry Traits --------
+# ---------- Display Ancestry Traits -----------------
 tcol1,tcol2 = st.columns(2,border=True)
 
 def parse_traits(traits_list):
@@ -76,7 +73,7 @@ with tcol2:
     st.write("#### Secondary Traits")
     st.write(f"{secondary_traits_text}") # choose 2 secondary traits
 
-# --- Select Secondary Traits ----
+# ----------- Select Secondary Traits ----------------
 st.write("Select your Two Secondary Traits")
 
 secondary_traits_list = []
@@ -103,4 +100,13 @@ with chosen2:
 
 chosen_secondary_traits.append(st_2)
 
-# st.warning(chosen_secondary_traits)
+
+# ------ Define Attribute Scores -------
+might = st.session_state.mgt = 0
+dexterity = st.session_state.dex = 0
+intelligence = st.session_state.inte = 0
+charisma = st.session_state.cha = 0
+prime = st.session_state.prime = max([might, dexterity,intelligence,charisma])
+
+base_attribute_scores = [3,1,0,-2]
+# idea - the order of the values in the list determines what attribute the are applied to 
