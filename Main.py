@@ -158,7 +158,7 @@ base_attribute_scores.remove(at_4)
 
 # -------------- Increase Attribute Points ----------------
 st.write("### Increase Attribute Points")
-st.write("You have 2 Attribute Points to expend to increase your Attributes")
+st.write("Choose which Attributes to increase")
 st.write("*Note you cannot increase an Attribute Point past 3 at Character Creation")
 
 curr_might = might
@@ -166,36 +166,28 @@ curr_dexterity = dexterity
 curr_intelligence = intelligence
 curr_charisma = charisma
 
+list_of_attributes = ["-","Might","Dexterity","Intelligence","Charisma"]
 
-ati_col1, ati_col2, ati_col3, ati_col4 = st.columns(4)
+ati_col1, ati_col2 = st.columns(2, border=True)
 
-
-st.session_state.attribute_points = 2
-
-
-def update_attribute_points():
-    if st.session_state.attribute_points > 0:
-        st.session_state.attribute_points -= 1
+def check_attribute_overflow(attribute):
+    at_warning = "An attribute cannot be more than 3 at Character Creation"
+    if attribute == "Might":
+        if might + 1 > 3:
+            st.warning(at_warning)
+        else:
+            pass
+            
 
 with ati_col1:
-    st.write("Might")
-    m1 = st.checkbox("", key="m1", on_change=update_attribute_points)
-    m2 = st.checkbox("", key="m2", on_change=update_attribute_points)
+    increase_1 = st.selectbox(
+        "First Attribute Point",
+        (list_of_attributes),)
+    
+    check_attribute_overflow(increase_1)
 
 with ati_col2:
-    st.write("Dexterity")
-    d1 = st.checkbox("", key="d1", on_change=update_attribute_points)
-    d2 = st.checkbox("", key="d2", on_change=update_attribute_points)
+    increase_2 = st.selectbox(
+        "Second Attribute Point",
+        (list_of_attributes),)
 
-with ati_col3:
-    st.write("Intelligence")
-    i1 = st.checkbox("", key="i1", on_change=update_attribute_points)
-    i2 = st.checkbox("", key="i2", on_change=update_attribute_points)
-
-with ati_col4:
-    st.write("Charisma")
-    c1 = st.checkbox("", key="c1", on_change=update_attribute_points)
-    c2 = st.checkbox("", key="c2", on_change=update_attribute_points)
-
-
-st.write(f"Remaining Attribute Points: {st.session_state.attribute_points}")
