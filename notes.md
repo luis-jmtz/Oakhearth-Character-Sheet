@@ -1,5 +1,10 @@
 # Notes
 
+## 8/13/25
+```
+df.to_csv('filename.csv', index=False)  # index=False avoids saving the index as a column
+```
+
 ## 07/31/25
 ```python
 import pandas as pd
