@@ -99,6 +99,7 @@ with chosen2:
 
 chosen_secondary_traits.append(st_2)
 
+st.warning("If a trait increases an Attribute, it cannot be increased past 3 at character creation")
 
 # ------------- Define Attribute Scores -----------
 might = st.session_state.mgt = 0
