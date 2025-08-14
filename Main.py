@@ -74,7 +74,6 @@ with tcol2:
     st.write(f"{secondary_traits_text}") # choose 2 secondary traits
 
 # ----------- Select Secondary Traits ----------------
-st.write("Select your Two Secondary Traits")
 
 secondary_traits_list = []
 for index, row in ancestry_traits.iterrows():
@@ -87,7 +86,7 @@ chosen_secondary_traits = []
 
 with chosen1:
     st_1 = st.selectbox(
-        "",
+        "Select your Two Secondary Traits",
         (secondary_traits_list),)
 
 chosen_secondary_traits.append(st_1)
@@ -101,7 +100,7 @@ with chosen2:
 chosen_secondary_traits.append(st_2)
 
 
-# ------ Define Attribute Scores -------
+# ------------- Define Attribute Scores -----------
 might = st.session_state.mgt = 0
 dexterity = st.session_state.dex = 0
 intelligence = st.session_state.inte = 0
@@ -109,4 +108,46 @@ charisma = st.session_state.cha = 0
 prime = st.session_state.prime = max([might, dexterity,intelligence,charisma])
 
 base_attribute_scores = [3,1,0,-2]
-# idea - the order of the values in the list determines what attribute the are applied to 
+remaining_attribute_scores = []
+
+
+# ------------ Distribute Attribute Points -----------------
+st.write("### Distribute your Attribute Points")
+
+at_col1, at_col2, at_col3, at_col4 = st.columns(4)
+
+with at_col1:
+    at_1 = st.selectbox(
+        "Might",
+        (base_attribute_scores),)
+    might = at_1
+
+remaining_attribute_scores.append(at_1)
+base_attribute_scores.remove(at_1)
+
+with at_col2:
+    at_2 = st.selectbox(
+        "Dexterity",
+        (base_attribute_scores),)
+    dexterity = at_2
+
+remaining_attribute_scores.append(at_2)
+base_attribute_scores.remove(at_2)
+
+with at_col3:
+    at_3 = st.selectbox(
+        "Intelligence",
+        (base_attribute_scores),)
+    intelligence = at_3
+
+remaining_attribute_scores.append(at_3)
+base_attribute_scores.remove(at_3)
+
+with at_col4:
+    at_4 = st.selectbox(
+        "Charisma",
+        (base_attribute_scores),)
+    charisma = at_4
+
+remaining_attribute_scores.append(at_4)
+base_attribute_scores.remove(at_4)
