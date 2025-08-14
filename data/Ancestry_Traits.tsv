@@ -36,7 +36,7 @@ traitID	Name	isCore	Description
 35	Brutal Strikes	0	You deal +1 damage when you score a Brutal or Critical Hit with a Melee Weapon or Unarmed Strike
 36	Persistent Traveler	0	You have ADV on saves against Exhaustion
 37	Born Rider	0	You have ADV on Saves and Checks to stay on your mount
-38	Draconic Origin	1	Choose Fire, Water(Cold) or Air(Lightning) as the element of your Draconic origin: - You gain Resistance (X) for the element of your Draconic Origin where X is equal to your Combat Proficiency - Once per Short Rest, you can imbue an Attack with the element of your Draconic Origin. The additional damage of this attack is equal to your Combat Proficiency
+38	Draconic Origin	1	Choose Fire, Water(Cold) or Air(Sonic) as the element of your Draconic origin: - You gain Resistance (X) for the element of your Draconic Origin where X is equal to your Combat Proficiency - Once per Short Rest, you can imbue an Attack with the element of your Draconic Origin. The additional damage of this attack is equal to your Combat Proficiency
 39	Darkvision	1	You have Darkvision up to 10 Spaces
 40	Draconic Arm	0	The damage of your Unarmed Strikes increases to 1. Additionally, you can choose between Bludgeoning or Slashing damage on each attack
 41	Draconic Legs	0	Increase your Speed by 1
