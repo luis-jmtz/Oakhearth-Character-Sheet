@@ -161,27 +161,41 @@ st.write("### Increase Attribute Points")
 st.write("You have 2 Attribute Points to expend to increase your Attributes")
 st.write("*Note you cannot increase an Attribute Point past 3 at Character Creation")
 
+curr_might = might
+curr_dexterity = dexterity
+curr_intelligence = intelligence
+curr_charisma = charisma
+
+
 ati_col1, ati_col2, ati_col3, ati_col4 = st.columns(4)
+
 
 st.session_state.attribute_points = 2
 
 
+def update_attribute_points():
+    if st.session_state.attribute_points > 0:
+        st.session_state.attribute_points -= 1
+
 with ati_col1:
-    st.write("might")
-    m1 = st.checkbox("Point 1", key="m1")
-    m2 = st.checkbox("Point 2", key="m2")
+    st.write("Might")
+    m1 = st.checkbox("", key="m1", on_change=update_attribute_points)
+    m2 = st.checkbox("", key="m2", on_change=update_attribute_points)
 
 with ati_col2:
-    st.write("dexterity")
-    d1 = st.checkbox("Point 1", key="d1")
-    d2 = st.checkbox("Point 2", key="d2")
+    st.write("Dexterity")
+    d1 = st.checkbox("", key="d1", on_change=update_attribute_points)
+    d2 = st.checkbox("", key="d2", on_change=update_attribute_points)
 
 with ati_col3:
-    st.write("intelligence")
-    i1 = st.checkbox("Point 1", key="i1")
-    i2 = st.checkbox("Point 2", key="i2")
+    st.write("Intelligence")
+    i1 = st.checkbox("", key="i1", on_change=update_attribute_points)
+    i2 = st.checkbox("", key="i2", on_change=update_attribute_points)
 
 with ati_col4:
-    st.write("charisma")
-    c1 = st.checkbox("Point 1", key="c1")
-    c2 = st.checkbox("Point 2", key="c2")
+    st.write("Charisma")
+    c1 = st.checkbox("", key="c1", on_change=update_attribute_points)
+    c2 = st.checkbox("", key="c2", on_change=update_attribute_points)
+
+
+st.write(f"Remaining Attribute Points: {st.session_state.attribute_points}")
