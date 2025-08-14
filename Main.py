@@ -99,7 +99,7 @@ with chosen2:
 
 chosen_secondary_traits.append(st_2)
 
-st.warning("If a trait increases an Attribute, it cannot be increased past 3 at character creation")
+st.warning("If a trait increases an Attribute, it cannot be increased past 3 at Character Creation")
 
 # ------------- Define Attribute Scores -----------
 might = st.session_state.mgt = 0
@@ -152,3 +152,36 @@ with at_col4:
 
 remaining_attribute_scores.append(at_4)
 base_attribute_scores.remove(at_4)
+
+# '''Add function to apply Secondary Trait bonuses to Attribute Points'''
+
+
+# -------------- Increase Attribute Points ----------------
+st.write("### Increase Attribute Points")
+st.write("You have 2 Attribute Points to expend to increase your Attributes")
+st.write("*Note you cannot increase an Attribute Point past 3 at Character Creation")
+
+ati_col1, ati_col2, ati_col3, ati_col4 = st.columns(4)
+
+st.session_state.attribute_points = 2
+
+
+with ati_col1:
+    st.write("might")
+    m1 = st.checkbox("Point 1", key="m1")
+    m2 = st.checkbox("Point 2", key="m2")
+
+with ati_col2:
+    st.write("dexterity")
+    d1 = st.checkbox("Point 1", key="d1")
+    d2 = st.checkbox("Point 2", key="d2")
+
+with ati_col3:
+    st.write("intelligence")
+    i1 = st.checkbox("Point 1", key="i1")
+    i2 = st.checkbox("Point 2", key="i2")
+
+with ati_col4:
+    st.write("charisma")
+    c1 = st.checkbox("Point 1", key="c1")
+    c2 = st.checkbox("Point 2", key="c2")
