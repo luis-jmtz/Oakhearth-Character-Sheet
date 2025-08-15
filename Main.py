@@ -7,7 +7,7 @@ import ast
 
 st.title("Oakhearth Character Creator")
 
-# ------- Load Data -------
+# --------------------- Load Data ------------------
 st.session_state.ancestries = pd.read_csv(fr"data\Ancestries.tsv",sep = '\t')
 st.session_state.ancestry_traits = pd.read_csv(fr"data\Ancestry_Traits.tsv",sep="\t")
 st.session_state.classes = pd.read_csv(fr"data\classID_Class.tsv",sep="\t")
@@ -28,7 +28,7 @@ attribute_limit = st.session_state.attribute_limit
 prof_limit = st.session_state.prof_limit
 
 
-# --- Choosing Ancestry --------------
+# -------------------- Choosing Ancestry -----------------
 st.write("### Choose an Ancestry")
 
 ancestry_list = []
@@ -106,7 +106,6 @@ might = st.session_state.mgt = 0
 dexterity = st.session_state.dex = 0
 intelligence = st.session_state.inte = 0
 charisma = st.session_state.cha = 0
-prime = st.session_state.prime = max([might, dexterity,intelligence,charisma])
 
 base_attribute_scores = [3,1,0,-2]
 remaining_attribute_scores = []
@@ -168,10 +167,14 @@ ati_col1, ati_col2 = st.columns(2, border=True)
 
 current_attribute_scores = [might,dexterity,intelligence,charisma]
 
+def check_attribute_overflow(scores, index):
+    temp_value = scores[index]+1
 
-def check_attribute_overflow():
-    pass
-
+    if temp_value > 3:
+        st.warning("An Attribute cannot be more than 3 at Character Creation")
+    else:
+        scores[index] += 1
+    
 
 with ati_col1:
     increase_1 = st.selectbox(
@@ -179,22 +182,35 @@ with ati_col1:
         (list_of_attributes),)
     
     at_index1 = list_of_attributes.index(increase_1)
-    st.write(at_index1)
+    check_attribute_overflow(current_attribute_scores,at_index1)
     
 
 with ati_col2:
     increase_2 = st.selectbox(
         "Second Attribute Point",
         (list_of_attributes),)
+    
+    at_index2 = list_of_attributes.index(increase_2)
+    check_attribute_overflow(current_attribute_scores,at_index2)
 
 
-at_dis1, at_dis2, at_dis3, at_dis4 = st.columns(4)
+st.write("#### Your final Attribute Scores")
+at_dis1, at_dis2, at_dis3, at_dis4 = st.columns(4, border=True)
+
+might = current_attribute_scores[0]
+dexterity = current_attribute_scores[1]
+intelligence = current_attribute_scores[2]
+charisma = current_attribute_scores[3]
+
+prime = max(current_attribute_scores)
 
 with at_dis1:
-    st.write(might)
+    st.write(f"Might: {might}")
 with at_dis2:
-    st.write(dexterity)
+    st.write(f"Dexterity: {dexterity}")
 with at_dis3:
-    st.write(intelligence)
+    st.write(f"Intelligence: {intelligence}")
 with at_dis4:
-    st.write(charisma)
+    st.write(f"Charisma: {charisma}")
+
+st.write(f"Your Prime Attribute is: {prime}")
