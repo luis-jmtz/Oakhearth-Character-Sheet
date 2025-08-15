@@ -161,33 +161,40 @@ st.write("### Increase Attribute Points")
 st.write("Choose which Attributes to increase")
 st.write("*Note you cannot increase an Attribute Point past 3 at Character Creation")
 
-curr_might = might
-curr_dexterity = dexterity
-curr_intelligence = intelligence
-curr_charisma = charisma
 
-list_of_attributes = ["-","Might","Dexterity","Intelligence","Charisma"]
+list_of_attributes = ["Might","Dexterity","Intelligence","Charisma"]
 
 ati_col1, ati_col2 = st.columns(2, border=True)
 
-def check_attribute_overflow(attribute):
-    at_warning = "An attribute cannot be more than 3 at Character Creation"
-    if attribute == "Might":
-        if might + 1 > 3:
-            st.warning(at_warning)
-        else:
-            pass
-            
+current_attribute_scores = [might,dexterity,intelligence,charisma]
+
+
+def check_attribute_overflow():
+    pass
+
 
 with ati_col1:
     increase_1 = st.selectbox(
         "First Attribute Point",
         (list_of_attributes),)
     
-    check_attribute_overflow(increase_1)
+    at_index1 = list_of_attributes.index(increase_1)
+    st.write(at_index1)
+    
 
 with ati_col2:
     increase_2 = st.selectbox(
         "Second Attribute Point",
         (list_of_attributes),)
 
+
+at_dis1, at_dis2, at_dis3, at_dis4 = st.columns(4)
+
+with at_dis1:
+    st.write(might)
+with at_dis2:
+    st.write(dexterity)
+with at_dis3:
+    st.write(intelligence)
+with at_dis4:
+    st.write(charisma)
