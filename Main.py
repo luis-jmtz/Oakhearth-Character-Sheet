@@ -14,7 +14,7 @@ st.session_state.classes = pd.read_csv(fr"data\classID_Class.tsv",sep="\t")
 st.session_state.skills = pd.read_csv(fr"data\Skills.tsv", sep="\t")
 st.session_state.attribute_limit = pd.read_csv(fr"data\Attribute_Level_Limit.tsv", sep="\t")
 st.session_state.prof_limit = pd.read_csv(fr"data\Proficency_Level_Limit.tsv", sep="\t")
-st.session_state.languages = pd.read_csv(f"data\Languages.tsv",sep="t")
+st.session_state.languages = pd.read_csv(fr"data\Languages.tsv", sep="\t")
 
 with open(fr'character_template.json', 'r') as file:
     st.session_state.char_data = json.load(file)
@@ -24,10 +24,10 @@ ancestries = st.session_state.ancestries
 ancestry_traits = st.session_state.ancestry_traits
 classes =  st.session_state.classes
 character_data =  st.session_state.char_data
-skills = st.session_state.skills = pd.read_csv(fr"data\Skills.tsv", sep="\t")
+skills = st.session_state.skills
 attribute_limit = st.session_state.attribute_limit
 prof_limit = st.session_state.prof_limit
-languages = st.session_state.languages = pd.read_csv(f"data\Languages.tsv",sep="t")
+languages = st.session_state.languages
 
 
 
@@ -223,3 +223,37 @@ st.write(f"Your Prime Attribute is: {prime}")
 
 # ------------ Distribute your Skill Points -----------------
 st.write("### Distribute your Skill Points")
+# st.write(skills)
+st.session_state.skill_points = 5 + intelligence
+skill_points = st.session_state.skill_points
+st.write(skill_points)
+
+mgt_rows = skills[skills["Attribute"] == 1] #output = the rows in skills where Attribute = 1
+dex_rows = skills[skills["Attribute"] == 2]
+int_rows = skills[skills["Attribute"] == 3]
+cha_rows = skills[skills["Attribute"] == 4]
+prime_rows = skills[skills["Attribute"] == 5]
+
+
+st.write(mgt_rows)
+
+
+
+def skill_point_checker(remaining_skill_points, toggled):
+    if remaining_skill_points <= 0:
+        st.warning("You are out of Skill Points")
+    elif toggled:
+        remaining_skill_points -= 1
+        return remaining_skill_points
+    elif not toggled:
+        remaining_skill_points += 1
+        return remaining_skill_points 
+
+
+
+
+# st.write(dex_rows)
+# st.write(int_rows)
+# st.write(cha_rows)
+# st.write(prime_rows)
+
