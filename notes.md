@@ -1,5 +1,9 @@
 # Notes
 
+## 8/18/2025
+The iterrows() method returns a tuple for each row: (index, row_data)
+
+
 ## 8/13/25
 ```
 df.to_csv('filename.csv', index=False)  # index=False avoids saving the index as a column
