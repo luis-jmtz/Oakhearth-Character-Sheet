@@ -228,15 +228,35 @@ st.session_state.skill_points = 5 + intelligence
 skill_points = st.session_state.skill_points
 st.write(skill_points)
 
-mgt_rows = skills[skills["Attribute"] == 1] #output = the rows in skills where Attribute = 1
-dex_rows = skills[skills["Attribute"] == 2]
-int_rows = skills[skills["Attribute"] == 3]
-cha_rows = skills[skills["Attribute"] == 4]
-prime_rows = skills[skills["Attribute"] == 5]
-
+# mgt_rows = skills[skills["Attribute"] == 1] #output = the rows in skills where Attribute = 1
 
 st.write(mgt_rows)
 
+mgt_skill_list = []
+dex_skill_list = []
+int_skill_list = []
+cha_skill_list = []
+prime_skill_list = []
+
+for row in range(skills.shape[0]):
+    if skills["Attribute"].iloc[row] == 1:
+        mgt_skill_list.append(skills.iloc[row])
+    if skills["Attribute"].iloc[row] == 2:
+        dex_skill_list.append(skills.iloc[row])
+    if skills["Attribute"].iloc[row] == 3:
+        int_skill_list.append(skills.iloc[row])
+    if skills["Attribute"].iloc[row] == 4:
+        cha_skill_list.append(skills.iloc[row])
+    if skills["Attribute"].iloc[row] == 5:
+        prime_skill_list.append(skills.iloc[row])
+
+st.write(prime_skill_list)
+
+# for row in range(mgt_rows.shape[0]): #mgt_row.shape[0] = number of rows
+#     mgt_skill_list.append(mgt_rows.iloc[row])
+#     # st.write(mgt_skill_list)
+
+# ancestry_ID = ancestry_row["ancestryID"].iloc[0] # selects column
 
 
 def skill_point_checker(remaining_skill_points, toggled):
@@ -249,8 +269,19 @@ def skill_point_checker(remaining_skill_points, toggled):
         remaining_skill_points += 1
         return remaining_skill_points 
 
+sc1, sc2,sc3,sc4 = st.columns(4, border=True)
 
+with sc1:
+    st.write("Might")
 
+with sc2:
+    st.write("Dexterity")
+
+with sc3:
+    st.write("Intelligence")
+
+with sc4:
+    st.write("Charisma")
 
 # st.write(dex_rows)
 # st.write(int_rows)
