@@ -119,6 +119,7 @@ st.write("### Distribute your Attribute Points")
 
 at_col1, at_col2, at_col3, at_col4 = st.columns(4)
 
+
 with at_col1:
     at_1 = st.selectbox(
         "Might",
@@ -235,37 +236,51 @@ st.write("##### Skill List")
 sc1, sc2, sc3, sc4 = st.columns(4, border=True)
 
 with sc1:
-    st.write("Might")
+    st.markdown("**Might**:")
     for index, row in mgt_rows.iterrows():
         curr = row["Name"]
         st.markdown(fr"- {curr}")
 
 with sc2:
-    st.write("Dexterity")
+    st.markdown("**Dexterity**:")
     for index, row in dex_rows.iterrows():
         curr = row["Name"]
         st.markdown(fr"- {curr}")
 
 with sc3:
-    st.write("Intelligence")
+    st.markdown("**Intelligence**:")
     for index, row in int_rows.iterrows():
         curr = row["Name"]
         st.markdown(fr"- {curr}")
 
 with sc4:
-    st.write("Charisma")
+    st.markdown("**Charisma**:")
     for index, row in cha_rows.iterrows():
         curr = row["Name"]
         st.markdown(fr"- {curr}")
 
-st.session_state.skill_points = 5 + intelligence
 
-skill_points = st.session_state.skill_points
 
-st.write()
 
-skill_options =st.multiselect(
-    fr"Remaining Skill Points: {skill_points}",
-    skills["Name"],
-    placeholder="Choose Your Skills"
-)
+# st.session_state.skill_points = 5 + intelligence
+
+# skill_points = st.session_state.skill_points
+
+# skill_options_disabled = False
+
+# if skill_points <=0:
+#     skill_options_disabled = True
+
+# skill_options =st.multiselect(
+#     fr"Remaining Skill Points: {skill_points}",
+#     skills["Name"],
+#     placeholder="Choose Your Skills",
+#     disabled=skill_options_disabled
+# )
+
+
+# skill_points = skill_points - len(skill_options)
+
+
+
+# st.write(skill_points)
