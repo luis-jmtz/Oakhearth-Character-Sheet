@@ -243,6 +243,12 @@ st.session_state.skill_points = 5 + intelligence
 def update_skill_points(number):
     st.session_state.skill_points -= number
 
+def update_skills(name, points):
+    mod_row = skills[skills["Name"] == name]
+    mod_row["Skill_lvl"] = points
+    skills[skills["Name"] == name] = mod_row
+    
+
 def gen_skills(rows):
     for index, row in rows.iterrows():
         name = row["Name"]
@@ -255,7 +261,9 @@ def gen_skills(rows):
 
         points = st.number_input(f"{name}", key=name,step=1,min_value=0,max_value=max_value)
 
+        update_skills(name,points)
         update_skill_points(points)
+
 
 sc1, sc2, sc3, remaining_points = st.columns(4)
 
@@ -282,3 +290,5 @@ with remaining_points:
 
     st.markdown(f'''
         ##### :blue[Remaining Skill Points: {skill_points}]''')
+    
+st.write(skills)
