@@ -4,6 +4,7 @@ import pandas as pd
 # import os
 import ast
 # import sqlite3
+import class_loader
 
 st.title("Oakhearth Character Creator")
 
@@ -280,3 +281,20 @@ with remaining_points:
     
     if st.session_state.skill_points <= 0:
         st.warning("You are out of Skill Points. Do not add anymore")
+
+
+# ------------------- Class Selection -------------------------
+st.write("### Choose Your Class")
+
+
+class_selection = st.selectbox(
+    "",
+    (classes["Class"]),
+)
+
+class_id = classes.loc[classes["Class"] == class_selection, "classID"].values[0]
+st.write(class_id)
+
+temp = class_loader.load_class(0)
+
+st.write(temp)
