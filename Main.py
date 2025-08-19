@@ -249,41 +249,44 @@ def update_skills(name, points):
     skills[skills["Name"] == name] = mod_row
     
 
-def gen_skills(rows):
+def gen_skills(rows, attribute):
     for index, row in rows.iterrows():
-        name = row["Name"]
 
-        expertise = row["Expertise"]
-        if expertise == 1:
-            max_value = 2
-        else:
-            max_value = 1
+        if row["Attribute"] ==attribute:
 
-        points = st.number_input(f"{name}", key=name,step=1,min_value=0,max_value=max_value)
+            name = row["Name"]
 
-        update_skills(name,points)
-        update_skill_points(points)
+            expertise = row["Expertise"]
+            if expertise == 1:
+                max_value = 2
+            else:
+                max_value = 1
+
+            points = st.number_input(f"{name}", key=name,step=1,min_value=0,max_value=max_value)
+
+            update_skills(name,points)
+            update_skill_points(points)
 
 
 sc1, sc2, sc3, remaining_points = st.columns(4)
 
 with sc1:
     st.markdown(":gray-background[**Prime**:]")
-    gen_skills(prime_rows)
+    gen_skills(skills,5)
 
     st.markdown(":gray-background[**Might**:]")
-    gen_skills(mgt_rows)
+    gen_skills(skills,1)
 
     st.markdown(":gray-background[**Dexterity**:]")
-    gen_skills(dex_rows)
+    gen_skills(skills,2)
 
 with sc2:
     st.markdown(":gray-background[**Intelligence**:]")
-    gen_skills(int_rows)
+    gen_skills(skills,3)
 
 with sc3:
     st.markdown(":gray-background[**Charisma**:]")
-    gen_skills(cha_rows)
+    gen_skills(skills,4)
 
 with remaining_points:
     skill_points = st.session_state.skill_points
