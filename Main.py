@@ -232,14 +232,27 @@ cha_rows = skills[skills["Attribute"] == 4]
 prime_rows = skills[skills["Attribute"] == 5]
 
 st.write("##### Skill List")
+st.session_state.skill_points = 5 + intelligence
+mgt_rows["Expertise"].iloc[0] = 1 #sets the Expertise at row 0 to 1
+
+def update_skill_points(number):
+    st.session_state.skill_points -= number
 
 sc1, sc2, sc3, sc4 = st.columns(4, border=True)
-
 with sc1:
     st.markdown("**Might**:")
     for index, row in mgt_rows.iterrows():
-        curr = row["Name"]
-        st.markdown(fr"- {curr}")
+        name = row["Name"]
+
+        expertise = row["Expertise"]
+        if expertise == 1:
+            max_value = 2
+        else:
+            max_value = 1
+
+        points = st.number_input(f"{name}", key=name,step=1,min_value=0,max_value=max_value)
+
+        update_skill_points(points)
 
 with sc2:
     st.markdown("**Dexterity**:")
@@ -260,7 +273,12 @@ with sc4:
         st.markdown(fr"- {curr}")
 
 
+# st.write(st.session_state.skill_points)
+skill_points = st.session_state.skill_points
 
+st.markdown(f'''
+    ##### :blue[Remaining Skill Points: {skill_points}]
+            ''')
 
 # st.session_state.skill_points = 5 + intelligence
 
