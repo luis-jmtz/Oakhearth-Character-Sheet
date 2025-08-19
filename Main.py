@@ -220,33 +220,19 @@ with at_dis4:
 st.write(f"Your Prime Attribute is: {prime}")
 
 
-
-
 # ------------ Distribute your Skill Points -----------------
 st.write("### Distribute your Skill Points")
-
-mgt_rows = skills[skills["Attribute"] == 1] #output = the rows in skills where Attribute = 1
-dex_rows = skills[skills["Attribute"] == 2]
-int_rows = skills[skills["Attribute"] == 3]
-cha_rows = skills[skills["Attribute"] == 4]
-prime_rows = skills[skills["Attribute"] == 5]
-
+st.write("Your Starting Skill Points = 5 + Intelligence")
 
 st.write("##### Skill List")
 st.session_state.skill_points = 5 + intelligence
 
 
-# mgt_rows["Expertise"].iloc[0] = 1 #sets the Expertise at row 0 to 1
-# mgt_rows["Expertise"].iloc[1] = 1
-
-
 def update_skill_points(number):
     st.session_state.skill_points -= number
 
-def update_skills(name, points):
-    mod_row = skills[skills["Name"] == name]
-    mod_row["Skill_lvl"] = points
-    skills[skills["Name"] == name] = mod_row
+def update_skills(skill_name, points):
+    skills.loc[skills["Name"] == skill_name, "Skill_lvl"] = points
     
 
 def gen_skills(rows, attribute):
@@ -289,9 +275,8 @@ with sc3:
     gen_skills(skills,4)
 
 with remaining_points:
-    skill_points = st.session_state.skill_points
-
     st.markdown(f'''
-        ##### :blue[Remaining Skill Points: {skill_points}]''')
+        ##### :blue[Remaining Skill Points: {st.session_state.skill_points}]''')
     
-st.write(skills)
+    if st.session_state.skill_points <= 0:
+        st.warning("You are out of Skill Points. Do not add anymore")
