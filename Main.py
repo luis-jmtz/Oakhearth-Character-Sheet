@@ -282,26 +282,3 @@ with remaining_points:
 
     st.markdown(f'''
         ##### :blue[Remaining Skill Points: {skill_points}]''')
-
-# st.session_state.skill_points = 5 + intelligence
-
-# skill_points = st.session_state.skill_points
-
-# skill_options_disabled = False
-
-# if skill_points <=0:
-#     skill_options_disabled = True
-
-# skill_options =st.multiselect(
-#     fr"Remaining Skill Points: {skill_points}",
-#     skills["Name"],
-#     placeholder="Choose Your Skills",
-#     disabled=skill_options_disabled
-# )
-
-
-# skill_points = skill_points - len(skill_options)
-
-
-
-# st.write(skill_points)
