@@ -230,9 +230,7 @@ int_rows = skills[skills["Attribute"] == 3]
 cha_rows = skills[skills["Attribute"] == 4]
 prime_rows = skills[skills["Attribute"] == 5]
 
-st.session_state.skill_points = 5 + intelligence
-
-skill_points = st.session_state.skill_points
+st.write("##### Skill List")
 
 sc1, sc2, sc3, sc4 = st.columns(4, border=True)
 
@@ -260,3 +258,14 @@ with sc4:
         curr = row["Name"]
         st.markdown(fr"- {curr}")
 
+st.session_state.skill_points = 5 + intelligence
+
+skill_points = st.session_state.skill_points
+
+st.write()
+
+skill_options =st.multiselect(
+    fr"Remaining Skill Points: {skill_points}",
+    skills["Name"],
+    placeholder="Choose Your Skills"
+)
