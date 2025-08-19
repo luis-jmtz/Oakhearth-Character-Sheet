@@ -231,17 +231,20 @@ int_rows = skills[skills["Attribute"] == 3]
 cha_rows = skills[skills["Attribute"] == 4]
 prime_rows = skills[skills["Attribute"] == 5]
 
+
 st.write("##### Skill List")
 st.session_state.skill_points = 5 + intelligence
-mgt_rows["Expertise"].iloc[0] = 1 #sets the Expertise at row 0 to 1
+
+
+# mgt_rows["Expertise"].iloc[0] = 1 #sets the Expertise at row 0 to 1
+# mgt_rows["Expertise"].iloc[1] = 1
+
 
 def update_skill_points(number):
     st.session_state.skill_points -= number
 
-sc1, sc2, sc3, sc4 = st.columns(4, border=True)
-with sc1:
-    st.markdown("**Might**:")
-    for index, row in mgt_rows.iterrows():
+def gen_skills(rows):
+    for index, row in rows.iterrows():
         name = row["Name"]
 
         expertise = row["Expertise"]
@@ -254,31 +257,31 @@ with sc1:
 
         update_skill_points(points)
 
+sc1, sc2, sc3, remaining_points = st.columns(4)
+
+with sc1:
+    st.markdown(":gray-background[**Prime**:]")
+    gen_skills(prime_rows)
+
+    st.markdown(":gray-background[**Might**:]")
+    gen_skills(mgt_rows)
+
+    st.markdown(":gray-background[**Dexterity**:]")
+    gen_skills(dex_rows)
+
 with sc2:
-    st.markdown("**Dexterity**:")
-    for index, row in dex_rows.iterrows():
-        curr = row["Name"]
-        st.markdown(fr"- {curr}")
+    st.markdown(":gray-background[**Intelligence**:]")
+    gen_skills(int_rows)
 
 with sc3:
-    st.markdown("**Intelligence**:")
-    for index, row in int_rows.iterrows():
-        curr = row["Name"]
-        st.markdown(fr"- {curr}")
+    st.markdown(":gray-background[**Charisma**:]")
+    gen_skills(cha_rows)
 
-with sc4:
-    st.markdown("**Charisma**:")
-    for index, row in cha_rows.iterrows():
-        curr = row["Name"]
-        st.markdown(fr"- {curr}")
+with remaining_points:
+    skill_points = st.session_state.skill_points
 
-
-# st.write(st.session_state.skill_points)
-skill_points = st.session_state.skill_points
-
-st.markdown(f'''
-    ##### :blue[Remaining Skill Points: {skill_points}]
-            ''')
+    st.markdown(f'''
+        ##### :blue[Remaining Skill Points: {skill_points}]''')
 
 # st.session_state.skill_points = 5 + intelligence
 
