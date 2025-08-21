@@ -38,4 +38,19 @@ def append_ancestry_traits(trait_name,isCore,trait_description):
 	print(df)
 
 
-append_ancestries("New",[-1,0],6,[2,3],[4,5])
+def append_class_features(path, level, name, description):
+	df = pd.read_csv(path, sep='\t')
+	
+	try:
+		new_id = int(df['featureID'].iloc[-1]) + 1
+	except:
+		new_id = 1
+
+	df.loc[len(df)] = [new_id,level,name,description]
+
+	df.to_csv(path, index=False,sep = '\t')
+	print(df)
+
+append_class_features("data\Class_Features\Rogue_features.tsv",1,"Rogue Stamina",
+					  "You regain half of your SP when you: - Hit a Flanked target. - Hit a target affected by a Condition. - Once per turn, when you gain the benefits of Cunning Action.")
+
