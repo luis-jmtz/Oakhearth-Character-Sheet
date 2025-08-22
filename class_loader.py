@@ -16,20 +16,27 @@ def get_features(class_id):
 
 def display_features_lvl1(features):
 	names_list = []
+	features_list = []
 
 	for row in features.itertuples():
 		if row.Level == 1:
 			names_list.append(row.Name)
+			features_list.append(row.Description)
 	
 	list_len = len(names_list)
 
-	test = st.columns(list_len)
+	return(names_list,features_list,list_len)
 
-	for i, col in enumerate(test):
-		with col:
-			text = names_list[i]
-			st.write(text)
-			st.write(f"This is content for column {i+1}", key=i)
+
+	# feature_columns = st.columns(list_len)
+
+	# for i, col in enumerate(feature_columns):
+	# 	with col:
+	# 		text = names_list[i]
+	# 		st.write(f"**{text}**")
+	# 		st.markdown(features_list[i],unsafe_allow_html=True)
+
+
 
 temp = get_features(1)
 

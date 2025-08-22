@@ -236,11 +236,17 @@ class_selection = st.selectbox(
 )
 
 class_id = classes.loc[classes["Class"] == class_selection, "classID"].values[0]
-class_data = class_loader.get_features(1)
-st.write(class_data)
+class_data = class_loader.get_features(class_id)
 
-class_loader.display_features_lvl1(class_data)
+names_list,features_list,list_len = class_loader.display_features_lvl1(class_data)
 
+feature_columns = st.columns(list_len)
+
+for i, col in enumerate(feature_columns):
+    with col:
+        text = names_list[i]
+        st.write(f"**{text}**")
+        st.markdown(features_list[i],unsafe_allow_html=True)
 
 
 
@@ -265,7 +271,7 @@ class_loader.display_features_lvl1(class_data)
 
 # ------------ Distribute your Skill Points -----------------
 st.write("### Distribute your Skill Points")
-st.write("Your Starting Skill Points = 5 + Intelligence")
+st.write("Your Starting Skill Points = 5 + Intelligence + Misc. Bonuses")
 
 st.write("##### Skill List")
 st.session_state.skill_points = 5 + intelligence + st.session_state.bonus_skill_points
