@@ -1,4 +1,5 @@
 import pandas as pd
+import streamlit as st
 
 classID_dict = pd.read_csv(r"data\classID_Class.tsv", sep="\t")
 
@@ -10,19 +11,26 @@ def get_features(class_id):
 
 	feature_filepath = fr"data\Class_Features\{class_name}_features.tsv"
 	features = pd.read_csv(feature_filepath, sep="\t")
-
-	print(features)
 	return(features)
+
+
+def display_features_lvl1(features):
+	names_list = []
+
+	for row in features.itertuples():
+		if row.Level == 1:
+			names_list.append(row.Name)
 	
-# get_features(9)
+	list_len = len(names_list)
 
-# def select_features(class_id):
-# 	rows = all_features[all_features["classID"] == class_id]
-# 	return rows
+	test = st.columns(list_len)
 
+	for i, col in enumerate(test):
+		with col:
+			text = names_list[i]
+			st.write(text)
+			st.write(f"This is content for column {i+1}", key=i)
 
-# def load_class(class_id):
-# 	output = select_features(class_id)
-# 	return output
+temp = get_features(1)
 
-# print(load_class(0))
+display_features_lvl1(temp)
