@@ -221,12 +221,50 @@ with at_dis4:
 st.write(f"Your Prime Attribute is: {prime}")
 
 
+
+
+
+
+# ------------------- Class Selection -------------------------
+st.write("### Choose Your Class")
+
+st.session_state.bonus_skill_points = 0
+
+class_selection = st.selectbox(
+    "",
+    (classes["Class"]),
+)
+
+class_id = classes.loc[classes["Class"] == class_selection, "classID"].values[0]
+st.write(class_id)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # ------------ Distribute your Skill Points -----------------
 st.write("### Distribute your Skill Points")
 st.write("Your Starting Skill Points = 5 + Intelligence")
 
 st.write("##### Skill List")
-st.session_state.skill_points = 5 + intelligence
+st.session_state.skill_points = 5 + intelligence + st.session_state.bonus_skill_points
 
 
 def update_skill_points(number):
@@ -283,18 +321,4 @@ with remaining_points:
         st.warning("You are out of Skill Points. Do not add anymore")
 
 
-# ------------------- Class Selection -------------------------
-st.write("### Choose Your Class")
 
-
-class_selection = st.selectbox(
-    "",
-    (classes["Class"]),
-)
-
-class_id = classes.loc[classes["Class"] == class_selection, "classID"].values[0]
-st.write(class_id)
-
-temp = class_loader.load_class(0)
-
-st.write(temp)
