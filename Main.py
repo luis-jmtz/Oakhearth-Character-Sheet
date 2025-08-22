@@ -236,7 +236,9 @@ class_selection = st.selectbox(
 )
 
 class_id = classes.loc[classes["Class"] == class_selection, "classID"].values[0]
-st.write(class_id)
+class_data = class_loader.get_features(class_id)
+st.write(class_data)
+
 
 
 
