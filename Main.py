@@ -240,14 +240,6 @@ class_data = class_loader.get_features(class_id)
 
 names_list,features_list,list_len = class_loader.display_features_lvl1(class_data)
 
-# feature_columns = st.columns(list_len)
-
-# for i, col in enumerate(feature_columns):
-#     with col:
-#         text = names_list[i]
-#         st.write(f"**{text}**")
-#         st.markdown(features_list[i],unsafe_allow_html=True)
-
 i = 0
 while i < list_len:
     # Create a new row of columns, max 2 columns
@@ -273,12 +265,8 @@ while i < list_len:
         i += 1
 
 
-
-
-
-
-
-
+if class_id == 9:
+    st.session_state.bonus_skill_points += 1
 
 
 

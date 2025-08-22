@@ -33,8 +33,3 @@ def display_features_lvl1(features):
 	return(names_list,features_list,list_len)
 
 
-
-
-temp = get_features(1)
-
-display_features_lvl1(temp)
