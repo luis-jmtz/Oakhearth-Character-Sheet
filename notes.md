@@ -6,6 +6,46 @@ Source for the table of contents code: https://discuss.streamlit.io/t/table-of-c
 ## 3pm
 Need to use line breaks `<br>` for the descriptions of the class features
 
+## 3:30 - LLM Code
+```
+i = 0
+while i < list_len:
+    # Create a new row of columns, max 2 columns
+    if i + 1 < list_len:
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.write(f"**{names_list[i]}**")
+            st.markdown(features_list[i], unsafe_allow_html=True)
+
+        with col2:
+            st.write(f"**{names_list[i+1]}**")
+            st.markdown(features_list[i+1], unsafe_allow_html=True)
+            
+        i += 2
+    else:
+        # Handle the case where there's an odd number of items
+        col1, _ = st.columns([1, 1])
+        with col1:
+            st.write(f"**{names_list[i]}**")
+            st.markdown(features_list[i], unsafe_allow_html=True)
+            
+        i += 1
+```
+
+### How It Works
+Looping with while: Instead of a for loop, a while loop is used to give you more control over the iteration step. The index i is manually incremented inside the loop.
+
+Creating Column Pairs: The code first checks if there are at least two items left to display (i + 1 < list_len).
+
+If true, it creates two columns with st.columns(2) and assigns them to col1 and col2.
+
+It then places the data for names_list[i] and names_list[i+1] into col1 and col2 respectively.
+
+The index is then incremented by 2 (i += 2) to move on to the next pair.
+
+Handling Odd Numbers: The else block handles the scenario where there's an odd number of items in the list. In this case, only one column is created, and the final item is displayed within it.
+
 
 ## 8/18/2025
 The iterrows() method returns a tuple for each row: (index, row_data)

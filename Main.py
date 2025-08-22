@@ -240,14 +240,37 @@ class_data = class_loader.get_features(class_id)
 
 names_list,features_list,list_len = class_loader.display_features_lvl1(class_data)
 
-feature_columns = st.columns(list_len)
+# feature_columns = st.columns(list_len)
 
-for i, col in enumerate(feature_columns):
-    with col:
-        text = names_list[i]
-        st.write(f"**{text}**")
-        st.markdown(features_list[i],unsafe_allow_html=True)
+# for i, col in enumerate(feature_columns):
+#     with col:
+#         text = names_list[i]
+#         st.write(f"**{text}**")
+#         st.markdown(features_list[i],unsafe_allow_html=True)
 
+i = 0
+while i < list_len:
+    # Create a new row of columns, max 2 columns
+    if i + 1 < list_len:
+        col1, col2 = st.columns(2,border=True)
+        
+        with col1:
+            st.write(f"**{names_list[i]}**")
+            st.markdown(features_list[i], unsafe_allow_html=True)
+
+        with col2:
+            st.write(f"**{names_list[i+1]}**")
+            st.markdown(features_list[i+1], unsafe_allow_html=True)
+            
+        i += 2
+    else:
+        # Handle the case where there's an odd number of items
+        col1, _ = st.columns([1, 1],border=True)
+        with col1:
+            st.write(f"**{names_list[i]}**")
+            st.markdown(features_list[i], unsafe_allow_html=True)
+            
+        i += 1
 
 
 
