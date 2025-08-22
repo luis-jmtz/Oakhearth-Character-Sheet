@@ -1,5 +1,9 @@
 # Notes
 
+# 8/22/2025
+Source for the table of contents code: https://discuss.streamlit.io/t/table-of-contents-widget/3470/8
+
+
 ## 8/18/2025
 The iterrows() method returns a tuple for each row: (index, row_data)
 
