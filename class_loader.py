@@ -21,20 +21,17 @@ def display_features_lvl1(features):
 	for row in features.itertuples():
 		if row.Level == 1:
 			names_list.append(row.Name)
-			features_list.append(row.Description)
+			
+			description = row.Description
+            # Split by hyphens that indicate bullet points and reformat
+			description = description.replace(' - ', '\n- ')  # Add line breaks before each bullet
+			description = description.replace('.   ', '.<br><br>')
+			features_list.append(description)
 	
 	list_len = len(names_list)
 
 	return(names_list,features_list,list_len)
 
-
-	# feature_columns = st.columns(list_len)
-
-	# for i, col in enumerate(feature_columns):
-	# 	with col:
-	# 		text = names_list[i]
-	# 		st.write(f"**{text}**")
-	# 		st.markdown(features_list[i],unsafe_allow_html=True)
 
 
 
