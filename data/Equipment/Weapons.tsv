@@ -1,0 +1,2 @@
+weaponID	Type	Name	Styles	Damage	Damage_Type	Properties	Cost
+int	int	string	[int]	int	[int]	[int]	string
