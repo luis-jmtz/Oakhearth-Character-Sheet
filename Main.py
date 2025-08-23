@@ -265,6 +265,7 @@ while i < list_len:
         i += 1
 
 
+# ---- Rogue Skill Point and Expertise ------
 if class_id == 9:
     st.session_state.bonus_skill_points += 1
 
