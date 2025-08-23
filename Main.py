@@ -268,9 +268,18 @@ while i < list_len:
 if class_id == 9:
     st.session_state.bonus_skill_points += 1
 
+    list_of_skills = []
 
+    for row in skills.itertuples():
+        list_of_skills.append(row.Name)
 
+    expert_skill = st.selectbox(
+        "Choose which Skill you want to gain Expertise in:",
+        list_of_skills)
+    
+    skills.loc[skills['Name'] == expert_skill, 'Expertise'] = 1
 
+    st.write(f"You have chosen the {expert_skill} to have Expertise in")
 
 
 
