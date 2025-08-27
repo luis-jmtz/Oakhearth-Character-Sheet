@@ -1,2 +1,41 @@
 weaponID	Type	Name	Styles	Damage	Damage_Type	basic_Properties	complex_properties	Cost
-int	int	string	[int]	int	[int]	[int]	[tuples]
+int	int	string	[int]	int	[int]	[int]	[tuples]	float
+1	1	Club						
+2	1	Handaxe						
+3	1	Greatclub						
+4	1	Knife						
+5	1	Knuckle Duster						
+6	1	Light Hammer						
+7	1	Quarterstaff						
+8	1	Spear						
+9	2	Battleaxe						
+10	2	Flail						
+11	2	Glaive						
+12	2	Greataxe						
+13	2	Greatmaul						
+14	2	Greatsword						
+15	2	Halberd						
+16	2	Longsword						
+17	2	Mace						
+18	2	Maul						
+19	2	Meteor Hammer						
+20	2	Morningstar						
+21	2	Net						
+22	2	Pike						
+23	2	Rapier						
+24	2	Saber						
+25	2	Shortsword						
+26	2	Warhammer						
+27	2	Whip						
+28	3	Blowgun						
+29	3	Dart						
+30	3	Light Crossbow						
+31	3	Shortbow						
+32	3	Slingshot						
+33	4	Bolas						
+34	4	Composite Bow						
+35	4	Greatbow						
+36	4	Hand Crossbow						
+37	4	Heavy Crossbow						
+38	4	Longbow						
+39	4	Sling						
