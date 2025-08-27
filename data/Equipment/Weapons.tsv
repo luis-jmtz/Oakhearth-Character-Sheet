@@ -1,2 +1,2 @@
-weaponID	Type	Name	Styles	Damage	Damage_Type	Properties	Cost
-int	int	string	[int]	int	[int]	[int]	string
+weaponID	Type	Name	Styles	Damage	Damage_Type	basic_Properties	complex_properties	Cost
+int	int	string	[int]	int	[int]	[int]	[tuples]
