@@ -39,21 +39,36 @@ ancestry_list = []
 for index, row in ancestries.iterrows():
     ancestry_list.append(ancestries["Ancestry"].iloc[index])
 
-ancestry_choice = st.selectbox(
-    "",
-    (ancestry_list),
-)
+an_col1, an_col2 = st.columns(2)
+
+with an_col1:
+    ancestry_choice1 = st.selectbox(
+        "",
+        (ancestry_list),
+    )
+
+with an_col2:
+    ancestry_choice2 = st.selectbox(
+        "",
+        (ancestry_list),
+        key="an_choice2"
+    )
+
+
+
 
 # get ancestry ID
-ancestry_row = ancestries[ancestries['Ancestry'] == ancestry_choice] # selects row
-ancestry_ID = ancestry_row["ancestryID"].iloc[0] # selects column
-core_traits = ast.literal_eval((ancestry_row["Core_Traits"].iloc[0]))
-secondary_traits = ast.literal_eval((ancestry_row["Secondary_Traits"].iloc[0]))
+ancestry_row1 = ancestries[ancestries['Ancestry'] == ancestry_choice1] # selects row
+ancestry_ID1 = ancestry_row1["ancestryID"].iloc[0] # selects column
+
+ancestry_row2 = ancestries[ancestries['Ancestry'] == ancestry_choice2] # selects row
+ancestry_ID2 = ancestry_row2["ancestryID"].iloc[0] # selects column
 
 
-# st.write(ancestry_ID)
-# st.write(core_traits)
-# st.write(secondary_traits)
+core_traits = ast.literal_eval((ancestry_row1["Core_Traits"].iloc[0]))
+secondary_traits = ast.literal_eval((ancestry_row2["Secondary_Traits"].iloc[0]))
+
+
 
 # ---------- Display Ancestry Traits -----------------
 tcol1,tcol2 = st.columns(2,border=True)
