@@ -34,6 +34,7 @@ languages = st.session_state.languages
 
 # -------------------- Choosing Ancestry -----------------
 st.write("### Choose an Ancestry")
+st.write("Player Character can have one or more ancestries. You receive all of your Core Traits and choose between 2 of your Secondary Traits")
 
 ancestry_list = []
 for index, row in ancestries.iterrows():
@@ -99,13 +100,17 @@ for index, row in ancestry_traits.iterrows():
     if ancestry_traits["traitID"].iloc[index] in secondary_traits:
         secondary_traits_list.append(ancestry_traits["Name"].iloc[index])
 
+
+
+st.write("#### Select your Two Secondary Traits")
+
 chosen1,chosen2 = st.columns(2)
 
 chosen_secondary_traits = []
 
 with chosen1:
     st_1 = st.selectbox(
-        "Select your Two Secondary Traits",
+        "",
         (secondary_traits_list),)
 
 chosen_secondary_traits.append(st_1)
@@ -280,7 +285,7 @@ while i < list_len:
         i += 1
 
 
-# ---- Rogue Skill Point and Expertise ------
+# --------------------- Rogue Skill Point and Expertise ----------------------------------------------
 if class_id == 9:
     st.session_state.bonus_skill_points += 1
 
@@ -295,7 +300,7 @@ if class_id == 9:
     
     skills.loc[skills['Name'] == expert_skill, 'Expertise'] = 1
 
-    st.write(f"You have chosen the {expert_skill} to have Expertise in")
+    st.markdown(f"You have chosen the {expert_skill} to have Expertise in",help="Expertise raises the cap on how many Skill Points you can apply to a given Skill")
 
 
 
