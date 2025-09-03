@@ -44,7 +44,54 @@
 		"2":"Range",
 		"3":"Strength",
 		"4":"Thrown"
+	},
+
+	"type_rev": {
+		"Simple_Melee": "1",
+		"Martial_Melee": "2",
+		"Simple_Ranged": "3",
+		"Martial_Ranged": "4"
+	},
+
+	"styles_rev": {
+		"Axe": "1",
+		"Bow": "2",
+		"Chained": "3",
+		"Crossbow": "4",
+		"Fist": "5",
+		"Hammer": "7",
+		"Pick": "8",
+		"Spear": "9",
+		"Staff": "10",
+		"Sword": "11",
+		"Whip": "12"
+	},
+
+	"dmg_types_rev": {
+		"B": "1",
+		"P": "2",
+		"S": "3"
+	},
+
+	"basic_properties_rev": {
+		"Capture": "1",
+		"Concealable": "2",
+		"Heavy": "3",
+		"Impact": "4",
+		"Reach": "5",
+		"Silent": "7",
+		"Two-Handed": "8",
+		"Unwiedly": "9",
+		"Versatile": "10"
+	},
+
+	"complex_properties_rev": {
+		"Loading": "1",
+		"Range": "2",
+		"Strength": "3",
+		"Thrown": "4"
 	}
+
 
 
 }
