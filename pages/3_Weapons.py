@@ -10,12 +10,19 @@ st.session_state.weapons = pd.read_csv(r"data\Equipment\Weapons.tsv", sep="\t")
 with open('data\Equipment\weapon_dict.json', 'r') as f:
     st.session_state.dicitonary = json.load(f)
 
-#Sets the dictionaries for the session
-weapon_types = st.session_state.dicitonary["type"]
-weapon_styles = st.session_state.dicitonary["styles"]
-damage_types = st.session_state.dicitonary["dmg_types"]
-basic_properties = st.session_state.dicitonary["basic_properties"]
-complex_properties = st.session_state.dicitonary["complex_properties"]
+#Sets the forward dictionaries for the session
+wt = st.session_state.dicitonary["type"] # weapon types
+ws = st.session_state.dicitonary["styles"] #weapon styles
+dt = st.session_state.dicitonary["dmg_types"] # damage types
+bp = st.session_state.dicitonary["basic_properties"] # basic properties
+cp = st.session_state.dicitonary["complex_properties"] # complex Properites
+
+# reverse dictionaries
+wt_rev = st.session_state.dicitonary["type_rev"]
+ws_rev = st.session_state.dicitonary["styles_rev"]
+dt_rev = st.session_state.dicitonary["dmg_types_rev"]
+bp_rev = st.session_state.dicitonary["basic_properties_rev"]
+cp_rev = st.session_state.dicitonary["complex_properties_rev"]
 
 
 # Cleans Weapon types text
@@ -27,8 +34,7 @@ def dict_cleaner(dict):
 
     return temp_list
 
-
-st.session_state.weapon_type_list = dict_cleaner(weapon_types)
+st.session_state.weapon_type_list = dict_cleaner(wt)
 
 
 col1, col2, col3, col4 = st.columns(4)
@@ -42,13 +48,13 @@ with col1:
 with col2:
     Dtype = st.selectbox(
         "Damage Type",
-        damage_types.values()
+        dt.values()
     )
 
 with col3:
     Bproperties = st.selectbox(
         "Basic Properties",
-        basic_properties.values()
+        bp.values()
     )
 
 with col4:
